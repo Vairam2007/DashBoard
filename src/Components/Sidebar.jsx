@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
@@ -7,95 +8,123 @@ import { FaRegFile } from "react-icons/fa";
 import { BsViewStacked } from "react-icons/bs";
 import { FaRegBuilding } from "react-icons/fa6";
 import { FaChartPie } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaTasks } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+
 const Sidebar = () => {
+    var [open,setopen]=useState("absolute left-0 lg:w-[20%] w-[30%] sm:block hidden  min-h-[100vh] bg-blue-200 z-10 ");
+
+    const change1 = () =>{
+        setopen("absolute left-0 lg:w-[20%] md:w-[30%] sm:block w-[40%] min-h-[100vh] bg-blue-200 z-10 sm:translate-x-0 -translate-x-[100%]")
+    }
+    const change2 = () =>{
+        setopen("absolute left-0 lg:w-[20%] w-[30%] sm:block min-h-[100vh] bg-blue-200 z-10 ")
+    }
   return (
     <>
-    <div className="lg:w-[20%] md:w-[30%] sm:block w-[40%] min-h-[100vh] hidden bg-gray-300">
+    <div className={open}>
         <div className="flex justify-center items-center w-[90%] h-[70px]">
             <button className='w-[30px] h-[30px] p-[5px] bg-gray-100' style={{borderRadius:" 15px 0 0 15px "}}><FaSearch /></button>
-            <input type="text" className='bg-gray-100 w-[60%] h-[30px] border-none outline-none' style={{borderRadius:"0 15px 15px 0"}} />
+            <input type="text" className='bg-gray-100 w-[70%] h-[30px] border-none outline-none' style={{borderRadius:"0 15px 15px 0"}} />
+            <FaArrowAltCircleLeft onClick={change1} className='w-[20px] sm:hidden h-[30px] mx-[10px]'/>
         </div>
 
-        <ul className='py-[20px] border-b-[1px] border-gray-400 flex flex-col gap-[10px]'>
+        <div className='py-[20px] border-b-[1px] border-gray-400 flex flex-col gap-[10px] items-center'>
             
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[10px] gap-[10px]">
+
+            <Link to="" className='flex justify-start items-center w-[90%] gap-[10px]  hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
                     <FaDatabase className='w-[20px] h-[20px] text-gray-500 ' />
                     <div className="text-[20px] font-semibold">DataBase</div>
-                </div>
-                <FaPlus />
-            </li>
+            </Link>
+
             
-            <li className='flex justify-start items-center px-[10px] gap-[10px]'>
+
+            <Link to="/DashBoard" className='flex justify-start items-center w-[90%] gap-[10px]  hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
                 <MdDashboard className='w-[20px] h-[20px] text-gray-500 ' />
-                <div className="text-[20px] font-semibold">DashBoard</div>
-            </li>
-            <li className='flex justify-start items-center px-[10px] gap-[10px]'>
+                <div className="text-[20px] font-semibold ">DashBoard</div>
+            </Link>
+
+
+            <Link to="/Favorite" className='flex justify-start items-center w-[90%] px-[20px] gap-[10px]  hover:bg-blue-400 rounded-[20px] cursor-pointer'>
                 <FaRegStar className='w-[20px] h-[20px] text-gray-500 ' />
              <div className="text-[20px] font-semibold">Favorite</div>
-            </li>
+            </Link>
 
-        </ul>
 
-        <ul className='py-[20px] flex flex-col gap-[10px]'>
-            <h1 className='text-[20px] p-[10px]'>Team Space</h1>
-            <div className="flex justify-between items-center w-[90%]">
-                <div className="flex items-center px-[10px] gap-[5px]">
+        </div>
+
+        <div className='py-[20px] flex flex-col'>
+            <h1 className='text-[20px] p-[5px]'>Team Space</h1>
+                <div className="flex items-center  px-[15px] gap-[5px]">
                     <FaRegFile className='text-[20px]' />
                     <h1 className=''>Source</h1>
-                </div>
-                <FaPlus />
+
             </div>
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[30px] gap-[10px]">
+            <div className='py-[10px] flex flex-col justify-center items-center gap-[10px]' >
+            <Link to="/Clint" className=' flex justify-between items-center w-[90%] hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
+                <div className="flex justify-start items-center gap-[10px]">
                 <FaPerson className='w-[20px] h-[20px] text-gray-500 ' />
                 <div className="text-[20px] font-semibold">Clints</div>
                 </div>
                 <BsThreeDotsVertical />
-            </li>
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[30px] gap-[10px]">
+            </Link>
+            <Link to='/Tasks' className='flex justify-between items-center w-[90%] hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
+                <div className="flex justify-start items-center gap-[10px]">
                 <FaTasks className='w-[20px] h-[20px] text-gray-500 ' />
                 <div className="text-[20px] font-semibold">Tasks</div>
                 </div>
                 <BsThreeDotsVertical />
-            </li>
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[30px] gap-[10px]">
+            </Link>
+            <Link to="/Visitors" className="flex justify-between items-center w-[90%] hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer">
+                <div className="flex justify-start items-center gap-[10px]">
                 <FaRegEye className='w-[20px] h-[20px] text-gray-500 ' />
                 <div className="text-[20px] font-semibold">Visitors</div>
                 </div>
                 <BsThreeDotsVertical />
-            </li>
-        </ul>
+            </Link>
+            </div>
+        </div>
 
-        <ul className='py-[20px] flex flex-col gap-[10px]'>
+        <div className='py-[10px] flex flex-col gap-[10px]'>
 
             <div className="flex items-center px-[10px] gap-[5px]">
                 <BsViewStacked className='text-[20px]' />
                 <h1 className=''>Views and Canvases</h1>
             </div>
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[30px] gap-[10px]">
+            <div className='py-[10px] flex flex-col justify-center items-center gap-[10px]'>
+            <Link to="/Company" className='flex justify-between items-center w-[90%] hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
+                <div className="flex justify-start items-center gap-[10px]">
                 <FaRegBuilding className='w-[20px] h-[20px] text-gray-500 ' />
                 <div className="text-[20px] font-semibold">Company</div>
                 </div>
                 <BsThreeDotsVertical />
-            </li>
-            <li className=' flex justify-between items-center w-[90%]'>
-                <div className="flex justify-start items-center px-[30px] gap-[10px]">
+            </Link>
+            <Link to="/Sales" className=' flex justify-between items-center w-[90%] hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
+                <div className="flex justify-start items-center gap-[10px]">
                 <FaChartPie className='w-[20px] h-[20px] text-gray-500 ' />
-                <div className="text-[20px] font-semibold">Sales Analysis</div>
+                <div className="text-[15px] font-semibold">Sales Analysis</div>
                 </div>
                 <BsThreeDotsVertical />
-            </li>
-        </ul>
+            </Link>
+            </div>
+        </div>
         
+    </div>
+    <div className="absolute left-0 w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center">
+        <div className=" w-[40px] h-[40px] rounded-[50%] bg-green-500 cursor-pointer flex justify-center items-center" onClick={change2}><FaArrowCircleRight className='w-[25px] h-[25px]' /></div>
+
+        <Link to="/" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaDatabase className='w-[25px] h-[25px]' /></Link>
+        <Link to="/DashBoard" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><MdDashboard className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Favorite" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaRegStar className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Clint" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaPerson className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Tasks" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaTasks className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Visitors" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaRegEye className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Company" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaRegBuilding  className='w-[25px] h-[25px]' /></Link>
+        <Link to="/Sales" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaChartPie className='w-[25px] h-[25px]' /></Link>
     </div>
     </>
   )
