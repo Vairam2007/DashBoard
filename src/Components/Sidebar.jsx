@@ -16,20 +16,25 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
 const Sidebar = () => {
-    var [open,setopen]=useState("absolute left-0 lg:w-[20%] w-[30%] sm:block hidden  min-h-[100vh] bg-blue-200 z-10 ");
+    var [open,setopen]=useState(" lg:w-[20%] w-[30%] sm:block hidden  min-h-[100vh] bg-blue-200 z-10 ");
+    var [small,setsmall]=useState(" w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center")
 
     const change1 = () =>{
-        setopen("absolute left-0 lg:w-[20%] md:w-[30%] sm:block w-[40%] min-h-[100vh] bg-blue-200 z-10 sm:translate-x-0 -translate-x-[100%]")
+        setopen("  lg:w-[20%] md:w-[20%] sm:block w-[20%] min-h-[100vh] bg-blue-200 z-10 sm:block hidden")
+        setsmall(" w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center")
     }
     const change2 = () =>{
-        setopen("absolute left-0 lg:w-[20%] w-[30%] sm:block min-h-[100vh] bg-blue-200 z-10 ")
+        setopen(" lg:w-[20%] w-[35%] sm:block min-h-[100vh] bg-blue-200 z-10 ")
+        setsmall("hidden")
     }
   return (
     <>
     <div className={open}>
-        <div className="flex justify-center items-center w-[90%] h-[70px]">
-            <button className='w-[30px] h-[30px] p-[5px] bg-gray-100' style={{borderRadius:" 15px 0 0 15px "}}><FaSearch /></button>
-            <input type="text" className='bg-gray-100 w-[70%] h-[30px] border-none outline-none' style={{borderRadius:"0 15px 15px 0"}} />
+        <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center w-[90%] h-[70px]">
+            <button className='w-[20px] h-[30px] p-[5px] bg-gray-100' style={{borderRadius:" 15px 0 0 15px "}}><FaSearch /></button>
+            <input type="text" className='bg-gray-100 px-[10px] w-[70%] h-[30px] border-none outline-none' style={{borderRadius:"0 15px 15px 0"}} />
+            </div>
             <FaArrowAltCircleLeft onClick={change1} className='w-[20px] sm:hidden h-[30px] mx-[10px]'/>
         </div>
 
@@ -45,7 +50,7 @@ const Sidebar = () => {
 
             <Link to="/DashBoard" className='flex justify-start items-center w-[90%] gap-[10px]  hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
                 <MdDashboard className='w-[20px] h-[20px] text-gray-500 ' />
-                <div className="text-[20px] font-semibold ">DashBoard</div>
+                <div className="text-[15px] sm:text-[20px] font-semibold ">DashBoard</div>
             </Link>
 
 
@@ -114,7 +119,7 @@ const Sidebar = () => {
         </div>
         
     </div>
-    <div className="absolute left-0 w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center">
+    <div className={small}>
         <div className=" w-[40px] h-[40px] rounded-[50%] bg-green-500 cursor-pointer flex justify-center items-center" onClick={change2}><FaArrowCircleRight className='w-[25px] h-[25px]' /></div>
 
         <Link to="/" className=" w-[40px] h-[40px] rounded-[50%] hover:bg-blue-500 cursor-pointer flex justify-center items-center"><FaDatabase className='w-[25px] h-[25px]' /></Link>
