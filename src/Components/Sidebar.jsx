@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { FaDatabase } from "react-icons/fa6";
 import { MdDashboard } from "react-icons/md";
@@ -20,11 +20,11 @@ const Sidebar = () => {
     var [small,setsmall]=useState(" w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center")
 
     const change1 = () =>{
-        setopen("  lg:w-[20%] md:w-[20%] sm:block w-[20%] min-h-[100vh] bg-blue-200 z-10 sm:block hidden")
+        setopen(" lg:w-[20%] md:w-[20%] sm:block w-[20%] min-h-[100vh] bg-blue-200 z-10 sm:block hidden")
         setsmall(" w-[10%] h-[100vh] sm:hidden bg-blue-200 flex flex-col justify-evenly items-center")
     }
     const change2 = () =>{
-        setopen(" lg:w-[20%] w-[35%] sm:block min-h-[100vh] bg-blue-200 z-10 ")
+        setopen(" lg:w-[20%] w-[50%] sm:block min-h-[100vh] bg-blue-200 z-10 ")
         setsmall("hidden")
     }
   return (
@@ -47,7 +47,6 @@ const Sidebar = () => {
             </Link>
 
             
-
             <Link to="/DashBoard" className='flex justify-start items-center w-[90%] gap-[10px]  hover:bg-blue-400 px-[20px] rounded-[20px] cursor-pointer'>
                 <MdDashboard className='w-[20px] h-[20px] text-gray-500 ' />
                 <div className="text-[15px] sm:text-[20px] font-semibold ">DashBoard</div>

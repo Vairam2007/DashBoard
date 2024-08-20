@@ -59,15 +59,15 @@ const InnerDashBoard = () => {
 
   return (
     <>
-    <div className='w-full min-h-[100vh] bg-blue-300 flex justify-center items-center flex-col gap-[20px] '>
+    <div className='overflow-x-hidden w-full min-h-[100vh] bg-blue-300 flex justify-center items-center flex-col gap-[20px] '>
       <h1 className='p-[10px] text-center font-bold text-[50px]'>DashBoard</h1>
       <div className="flex justify-evenly items-center p-[20px] flex-col md:flex-row gap-[20px]">
-        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className=" rounded-[50px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[400px] h-[200px] p-[10px] md:p-[50px]"><Bar data={data1} /></div>
-        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[50px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[400px] h-[200px] p-[10px] md:p-[50px]"><Bar data={data2} /></div>
+        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className=" rounded-[20px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[200px] h-[100px] p-[10px] md:p-[50px]"><Bar data={data1} /></div>
+        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[20px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[200px] h-[100px] p-[10px] md:p-[50px]"><Bar data={data2} /></div>
       </div>
       <div className="flex justify-evenly items-center p-[20px] flex-col md:flex-row gap-[20px]">
-        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[50px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[400px] h-[200px] p-[10px] md:p-[50px] mb-[10px] "><Line data={data3} /></div>
-        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[50px] bg-white lg:w-[300px] lg:h-[300px]  md:w-[200px] md:h-[200px] w-[200px] h-[200px] p-[10px] md:p-[50px] mb-[10px] "><Pie data={data4} /></div>
+        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[20px] bg-white lg:w-[500px] lg:h-[300px]  md:w-[300px] md:h-[200px] w-[200px] h-[100px] p-[10px] md:p-[50px] mb-[10px] "><Line data={data3} /></div>
+        <div style={{boxShadow:"0 0 10px rgba(0,0,0 ) "}} className="rounded-[20px] bg-white lg:w-[300px] lg:h-[300px]  md:w-[200px] md:h-[200px] w-[200px] h-[200px] p-[10px] md:p-[50px] mb-[10px] "><Pie data={data4} /></div>
       </div>
     </div>
     </>
